@@ -8,6 +8,7 @@ public class yz {
         String key = null;
         key = showKeyInputDialog();
         if (key == null) {
+
             System.exit(0);
         }
     }
