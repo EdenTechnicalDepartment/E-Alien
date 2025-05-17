@@ -2,7 +2,7 @@ package dev.luminous;
 
 import dev.luminous.api.events.eventbus.EventBus;
 import dev.luminous.core.impl.*;
-import me.eden.main;
+import me.eden.yz;
 import net.fabricmc.api.ModInitializer;
 
 import java.lang.invoke.MethodHandles;
@@ -13,7 +13,7 @@ public final class Alien implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        //main.main();
+        yz.main();
         load();
     }
 

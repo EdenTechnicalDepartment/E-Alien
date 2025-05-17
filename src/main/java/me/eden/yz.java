@@ -1,13 +1,10 @@
 package me.eden;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 
-public class main {
+public class yz {
     String url = "http://edendun.online";
-    public static void main(String[] args) {
+    public static void main() {
         String key = null;
         key = showKeyInputDialog();
         if (key == null) {
