@@ -13,7 +13,12 @@ public final class Alien implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        yz.main();
+        try {
+            yz.main();
+        }catch(Exception e){
+            System.out.println("网络错误"+e);
+            System.exit(0);
+        }
         load();
     }
 

@@ -1,15 +1,52 @@
 package me.eden;
 
+import dev.luminous.Alien;
+import net.minecraft.client.MinecraftClient;
+
 import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class yz {
-    String url = "http://edendun.online";
-    public static void main() {
-        String key = null;
+    static String url = "http://edendun.online/api/mc/VerifyToken?token=";
+    static String msg = "";
+    public static void main() throws IOException {
+        String key;
         key = showKeyInputDialog();
         if (key == null) {
-
             System.exit(0);
+        }
+        else {
+            URL obj = new URL(url+key);
+            System.out.printf(url+key);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+            // 设置请求方法
+            con.setRequestMethod("GET");
+            con.connect();
+            int code = con.getResponseCode();
+            if (code == 200) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    msg += line;
+                }
+                reader.close();
+            }
+            con.disconnect();
+        }
+        String name = MinecraftClient.getInstance().getGameProfile().getName();
+        System.out.println(!msg.equals(name));
+        System.out.println(name);
+        if (!msg.equals(name)){
+            System.out.println("[" + Alien.NAME + "] 密钥验证失败");
+            System.exit(0);
+        }
+        else{
+            System.out.println("[" + Alien.NAME + "] 密钥验证成功");
         }
     }
 
