@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "alien",
+  "id": "e-alien",
   "version": "${version}",
   "name": "Alien",
   "description": "Alien client",

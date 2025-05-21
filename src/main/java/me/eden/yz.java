@@ -39,8 +39,6 @@ public class yz {
             con.disconnect();
         }
         String name = MinecraftClient.getInstance().getGameProfile().getName();
-        System.out.println(!msg.equals(name));
-        System.out.println(name);
         if (!msg.equals(name)){
             System.out.println("[" + Alien.NAME + "] 密钥验证失败");
             System.exit(0);
